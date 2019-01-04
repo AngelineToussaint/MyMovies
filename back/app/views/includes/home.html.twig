@@ -1,0 +1,91 @@
+<div id="home" class="row page">
+    <div class="col s10 offset-s1 grey-text text-darken-2">
+        <div class="row">
+            <div class="col s12">
+                <h4 class="bold-text">Welcome</h4>
+                <hr>
+                {{ description|raw }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6">
+                <h4 class="bold-text">HTTPs requests</h4>
+                <hr>
+                <ul class="collapsible popout http-requests">
+                    {% for httpRequest in httpRequests %}
+                        <li class="{{ httpRequest.title|lower }}">
+                            <div class="collapsible-header">{{ httpRequest.title }}</div>
+                            <div class="collapsible-body"><span>{{ httpRequest.content }}</span></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col s6">
+                <h4 class="bold-text">Regex list</h4>
+                <hr>
+                <ul class="collapsible popout regex">
+                    {% for key, oneRegex in regex %}
+                        <li>
+                            <div class="collapsible-header"><span class="bold-text">{{ key }}</span></div>
+                            <div class="collapsible-body"><span>Regex : {{ oneRegex }}</span></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6">
+                <h4 class="bold-text">Success codes</h4>
+                <hr>
+                <ul class="collapsible popout http-requests">
+                    {% for successCode in successCodes %}
+                        <li>
+                            <div class="collapsible-header">
+                                <span class="bold-text">{{ successCode.code }}</span> | <span>{{ successCode.title }}</span>
+                            </div>
+                            <div class="collapsible-body">
+                                <span>HTTP Status : {{ successCode.status }}</span>
+                                <br>
+                                <span>Detail : {{ successCode.detail }}</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col s6">
+                <h4 class="bold-text">Error codes</h4>
+                <hr>
+                <ul class="collapsible popout http-requests">
+                    {% for errorCode in errorCodes %}
+                        <li>
+                            <div class="collapsible-header">
+                                <span class="bold-text">{{ errorCode.code }}</span> | <span>{{ errorCode.title }}</span>
+                            </div>
+                            <div class="collapsible-body">
+                                <span>HTTP Status : {{ errorCode.status }}</span>
+                                <br>
+                                <span>Detail : {{ errorCode.detail }}</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h4 class="bold-text">Token <i class="material-icons">https</i></h4>
+                <hr>
+                <p>
+                    Everytime you see the icon <i class="material-icons tiny">https</i>, that means the route is secure by token.<br>
+                    For access to secure routes by token, you need to login on this api with the route "/auth".
+                    After logging in, retrieve the response token and keep him in local storage.
+                    For all requests on the secure routes, you need to send the token in the header of the request. The header must to be named "X-Auth-Token".
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

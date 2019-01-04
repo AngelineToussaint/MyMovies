@@ -1,0 +1,62 @@
+[
+  {
+    "code": "E_A001",
+    "status": 404,
+    "title": "Page not found",
+    "message": "This page does not exist."
+  },
+  {
+    "code": "E_A002",
+    "status": 401,
+    "title": "Invalid token",
+    "message": "You need a valid authentication to the API. You need to send a valid token (which has not expired and whose the IP address correspond to yours)."
+  },
+  {
+    "code": "E_A003",
+    "status": 401,
+    "title": "Invalid role",
+    "message": "You need a valid role to access to the API."
+  },
+  {
+    "code": "E_A004",
+    "status": 401,
+    "title": "Invalid login",
+    "message": "Incorrect information of connection. The email or the password does not valid."
+  },
+  {
+    "code": "E_A005",
+    "status": 422,
+    "title": "Error with this property",
+    "message": "The :property may not exist or can contain an error in the name or in the format."
+  },
+  {
+    "code": "E_A006",
+    "status": 422,
+    "title": "Id does not exist",
+    "message": "No content found with this id in the table :key."
+  },
+  {
+    "code": "S_G001",
+    "status": 200,
+    "title": "OK",
+    "message": "The content is retrieved with success"
+  },
+  {
+    "code": "S_PO001",
+    "status": 201,
+    "title": "Successful added",
+    "message": "The content is added with success"
+  },
+  {
+    "code": "S_PU001",
+    "status": 201,
+    "title": "Successful updated",
+    "message": "The content is updated with success"
+  },
+  {
+    "code": "S_D001",
+    "status": 200,
+    "title": "Successful deleted",
+    "message": "The content is deleted or archived with success"
+  }
+]

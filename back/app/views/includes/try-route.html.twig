@@ -1,0 +1,102 @@
+<div class="row page" id="try-route">
+    <div class="col s12">
+        {% for key, doc in docs %}
+            <div class="row grey-text text-darken-2 reference {{ key }}">
+                <div class="col s5 offset-s1 requests">
+                    {% for keyRoute, route in doc %}
+                        <div class="row route {{ route.title|lower|replace({' ': '-'})|replace({'.': '_'}) }}" data-token="{{ route.token }}">
+                            {% if route.token == true %}
+                                <div class="formLogin" style="display: none;">
+                                    <h4 class="bold-text">Route require token (please login)</h4>
+                                    <hr>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="{{ key }}{{ keyRoute }}LoginEmail" type="email" name="email">
+                                                <label for="{{ key }}{{ keyRoute }}LoginEmail">Email</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input id="{{ key }}{{ keyRoute }}LoginPassword" type="password" name="password">
+                                                <label for="{{ key }}{{ keyRoute }}LoginPassword">Password</label>
+                                            </div>
+                                            <button class="login btn">Login</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if route.params != null %}
+                                <div class="formParams" style="display: none;">
+                                    <h4 class="bold-text">Params</h4>
+                                    <hr>
+                                    <div class="content">
+                                        <div class="row">
+                                            {% for keyParam, type in route.params %}
+                                                <div class="input-field col s12">
+                                                    <input id="{{ key }}{{ keyRoute }}Param{{ keyParam|capitalize }}" type="text" name="{{ keyParam }}">
+                                                    <label for="{{ key }}{{ keyRoute }}Param{{ keyParam|capitalize }}">{{ keyParam|capitalize }} (Require)</label>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if route.requests != null %}
+                                <div class="formRequestBody" style="display: none;">
+                                    <h4 class="bold-text">Request body</h4>
+                                    <hr>
+                                    <div class="content">
+                                        <div class="row">
+                                            {% for keyRequest, type in route.requests %}
+                                                {% if keyRequest[:1] == '*' %}
+                                                    {% set keyRequest = keyRequest|slice(1, key|length) %}
+                                                    {% set require = true %}
+                                                {% else %}
+                                                    {% set keyRequest = keyRequest %}
+                                                    {% set require = false %}
+                                                {% endif %}
+
+                                                <div class="input-field col s12">
+                                                    <input id="{{ key }}{{ keyRoute }}Request{{ keyRequest|capitalize }}" type="text" name="{{ keyRequest }}">
+                                                    <label for="{{ key }}{{ keyRoute }}Request{{ keyRequest|capitalize }}">{{ keyRequest|capitalize }} {{ require ? '(Require)' : '(Optional)' }}</label>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col s6 routes grey darken-4">
+                    {% for route in doc %}
+                        <div class="row route {{ route.title|lower|replace({' ': '-'})|replace({'.': '_'}) }}">
+                            <div class="col s12">
+                                <nav class="breadcrumbs grey darken-3">
+                                    <div class="nav-wrapper">
+                                        <div class="col s12">
+                                            <a class="breadcrumb">Reference</a>
+                                            <a href="#/reference/{{ key|lower }}" class="breadcrumb">{{ key|capitalize }}</a>
+                                            <a href="#/reference/{{ key|lower }}/{{ route.title|lower|replace({' ': '-'})|replace({'.': '_'}) }}" class="breadcrumb">{{ route.title }}</a>
+                                        </div>
+                                    </div>
+                                </nav>
+                                <div class="endpoint z-depth-2 {{ route.method|lower }}">
+                                    <div class="chip grey-text text-darken-3">
+                                        {{ route.method|upper }}
+                                    </div>
+                                    <div class="url white-text">
+                                        <span class="base-uri">{{ g_base_uri }}</span><span class="part-endpoint bold-text">/{{ route.endpoint }}</span>
+                                    </div>
+                                </div>
+                                <button class="btn waves-effect waves-light launch" data-method="{{ route.method }}" data-endpoint="{{ route.endpoint }}">TRY NOW <i class="material-icons right">send</i></button>
+                                <div class="content white-text">
+                                    <pre class="json line-numbers"><code class="language-javascript"></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div id="report" class="row page">
+    <div class="col s8 offset-s2 grey-text text-darken-2">
+        <h4 class="bold-text">Contact us to report a bug</h4>
+        <hr>
+        <div class="row">
+            <form class="col s12" action="#/report">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person</i>
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="wrong email"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input id="object" type="text" class="validate" required>
+                        <label for="object">Object</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="content" class="materialize-textarea validate" required></textarea>
+                        <label for="content">Content</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center">
+                        <button type="submit" class="waves-effect waves-light btn large"><i class="material-icons right">send</i>Send the report</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<nav>
+    <div class="nav-wrapper cyan lighten-1">
+        <!-- on mobile -->
+        <a data-target="slide-out" class="sidenav-trigger" href="#"><i class="material-icons">menu</i></a>
+        <!-- on desktop -->
+        <ul class="left hide-on-med-and-down">
+            <li data-target="slide-out" class="sidenav-trigger"><a href="#"><i class="material-icons">menu</i></a></li>
+        </ul>
+        <a href="#/home" class="center brand-logo">{{ g_api_name }} - Documentation</a>
+        <ul class="right hide-on-med-and-down">
+            <li class="sidenav-trigger logout" style="display: none;"><a><i class="material-icons">exit_to_app</i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="{{ g_img }}background.jpg">
+            </div>
+            <a><span class="white-text name">{{ g_api_name }}</span></a>
+            <a><span class="white-text email">Documentation</span></a>
+        </div>
+    </li>
+    <li>
+        <a href="#/home" class="sidenav-close waves-effect"><i class="material-icons">home</i>Home</a>
+    </li>
+    <li>
+        <a href="#/report" class="sidenav-close waves-effect"><i class="material-icons">email</i>Report a bug</a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="subheader">References</a>
+    </li>
+    {% for key,doc in docs|ksort %}
+        <li>
+            <a class="sidenav-close waves-effect btn-ref" data-ref="{{ key|lower }}" href="#/reference/{{ key }}"><i class="material-icons">label_outline</i>{{ key|capitalize }}</a>
+        </li>
+    {% endfor %}
+</ul>
