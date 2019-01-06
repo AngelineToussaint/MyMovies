@@ -27,7 +27,7 @@
     "code": "E_A005",
     "status": 422,
     "title": "Error with this property",
-    "message": "The :property may not exist or can contain an error in the name or in the format."
+    "message": "The :key may not exist or can contain an error in the name or in the format."
   },
   {
     "code": "E_A006",
