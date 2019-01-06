@@ -20,7 +20,7 @@ $router->add('POST', '/auth', "Auth#check", "Authentication to the API");
 // Group of routes
 $router->group('/users', function (Group $group) {
 
-    
+
 
 }, null, [], [ // Params of routes in this group
     'id' => 'Int',

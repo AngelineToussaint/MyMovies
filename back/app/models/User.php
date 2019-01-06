@@ -29,8 +29,6 @@ class User extends Database
      */
     public function insert()
     {
-        $this->token = $this->_generateToken();
-
         return parent::insert();
     }
 
