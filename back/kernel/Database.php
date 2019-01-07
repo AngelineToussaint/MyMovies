@@ -379,7 +379,16 @@ class Database
     {
         $q = self::_getPdo()->prepare($statement);
         $q->execute($params);
-        return $q->fetchAll(PDO::FETCH_CLASS, get_called_class());
+
+        $class = get_called_class();
+
+        $res = $q->fetchAll(PDO::FETCH_CLASS, $class);
+
+        if ($class == 'Models\\User' && !$class::$retrieveEmailAndPw) {
+            Utils::removeAttrs($res, ['email', 'password']);
+        }
+
+        return $res;
     }
 
     /**

@@ -21,9 +21,9 @@ $router->add('POST', '/auth', "Auth#check", "Authentication to the API");
 $router->group('/users', function (Group $group) {
 
     $group->add('POST', '', 'User#add', 'Add a new User', null, [], [], [
-        'username' => 'Alphanum',
-        'email' => 'Email',
-        'password' => 'String'
+        '*username' => 'Alphanum',
+        '*email' => 'Email',
+        '*password' => 'String'
     ]);
 
 }, null, [], [ // Params of routes in this group
