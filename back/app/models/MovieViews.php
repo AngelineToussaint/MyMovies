@@ -2,7 +2,7 @@
 namespace Models;
 use Kernel\Database;
 
-class Movieviews extends Database
+class MovieViews extends Database
 {
     protected static $_table = 'movieviews';
 }
