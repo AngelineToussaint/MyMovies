@@ -14,6 +14,8 @@ class Auth extends Controller
      */
     public static function check($post)
     {
+        User::$retrieveEmailAndPw = true;
+
         $user = User::check($post->email, $post->password);
         if ($user) {
             // create token here

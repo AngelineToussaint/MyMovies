@@ -39,7 +39,7 @@
     "code": "S_G001",
     "status": 200,
     "title": "OK",
-    "message": "The content is retrieved with success"
+    "message": "Le contenu a bien été récupéré."
   },
   {
     "code": "S_PO001",
