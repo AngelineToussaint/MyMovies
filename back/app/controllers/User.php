@@ -46,12 +46,18 @@ class User extends Controller
         self::render('S_G001', $user);
     }
 
-    public static function edit($params, $put)
+    public static function edit($put, $params)
     {
-        $user = new \Models\User($params);
-        $user->password = password_hash($put->password, PASSWORD_BCRYPT);
+        \Models\User::$retrieveEmailAndPw = true;
+
+        $user = new \Models\User($params->id);
+
+        if (!empty($put->password)) {
+            $user->password = password_hash($put->password, PASSWORD_BCRYPT);
+        }
+
         $user->update();
 
-        self::render('S_PU001', false);
+        self::render('S_PU001', false, 'Le compte');
     }   
 }

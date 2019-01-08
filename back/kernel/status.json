@@ -21,7 +21,7 @@
     "code": "E_A004",
     "status": 401,
     "title": "Invalid login",
-    "message": "Incorrect information of connection. The email or the password does not valid."
+    "message": "Les informations de connexion sont incorrect. L'email ou le mot de passe ne sont pas valides."
   },
   {
     "code": "E_A005",
@@ -51,7 +51,7 @@
     "code": "S_PU001",
     "status": 201,
     "title": "Successful updated",
-    "message": "Le contenu a été modifié avec succès"
+    "message": ":key a été modifié !"
   },
   {
     "code": "S_D001",
