@@ -1,6 +1,7 @@
 <?php
 namespace Kernel;
 use Controllers\Controller;
+use Kernel\Tools\Utils;
 use PDO;
 
 class Database

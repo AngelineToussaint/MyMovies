@@ -17,4 +17,9 @@ class User extends Controller
 
         self::render('S_PO001', false, 'Votre compte');
     }
+
+    public static function getAll()
+    {
+        self::render('S_G001', \Models\User::getAll());
+    }
 }

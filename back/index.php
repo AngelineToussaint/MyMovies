@@ -26,6 +26,8 @@ $router->group('/users', function (Group $group) {
         '*password' => 'String'
     ]);
 
+    $group->add('GET', '', 'User#getAll', 'Récupérer les données d\'un utilisateur');
+
 }, null, [], [ // Params of routes in this group
     'id' => 'Int',
 ]);
