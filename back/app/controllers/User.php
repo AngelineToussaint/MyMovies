@@ -59,5 +59,5 @@ class User extends Controller
         $user->update();
 
         self::render('S_PU001', false, 'Le compte');
-    }   
+    }
 }

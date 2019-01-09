@@ -16,4 +16,16 @@ class Playlist extends Controller
 
         self::render('S_G001', $playlist);
     }
+
+    public static function add($post, $params)
+    {
+        $playlist = new \Models\Playlist();
+
+        $playlist->user_id = $params->id;
+        $playlist->id_movie = $post->id_movie;
+
+        $playlist->insert();
+
+        self::render('S_PO001', false, 'Le film');
+    }
 }

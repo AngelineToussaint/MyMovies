@@ -36,6 +36,10 @@ $router->group('/users', function (Group $group) {
 
     $group->add('GET', '/:id/playlist', 'Playlist#getAll', 'Récupérer les films de la playlist d un utilisateur');
 
+    $group->add('POST', '/:id/playlist', 'Playlist#add', 'Ajouter un film dans sa playlist', true, [], [], [
+        '*id_movie' => 'Int'
+    ]);
+
     $group->add('GET', '/:id/movieviews', 'MovieViews#getAll', 'Récupérer les films de la liste des films vues d un utilisateur');
 
 }, null, [], [ // Params of routes in this group
