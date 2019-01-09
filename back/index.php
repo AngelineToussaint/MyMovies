@@ -42,6 +42,12 @@ $router->group('/users', function (Group $group) {
 
     $group->add('DELETE', '/:id/playlist/:playlist_id', 'Playlist#delete', 'Supprimer un film de sa playlist');
 
+    $group->add('POST', '/:id/movieviews', 'MovieViews#add', 'Ajouter un film dans sa liste de films vues', true, [], [], [
+        '*id_movie' => 'Int'
+    ]);
+
+    $group->add('DELETE', '/:id/movieviews/:movieviews_id', 'MovieViews#delete', 'Supprimer un film de sa liste de films vues');
+
     $group->add('GET', '/:id/movieviews', 'MovieViews#getAll', 'Récupérer les films de la liste des films vues d un utilisateur');
 
 }, null, [], [ // Params of routes in this group
