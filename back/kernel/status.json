@@ -36,12 +36,6 @@
     "message": "No content found with this id in the table :key."
   },
   {
-    "code": "E_A007",
-    "status": 422,
-    "title": "User is not owner",
-    "message": "Vous n'êtes pas le propriétaire de cette ressource."
-  },
-  {
     "code": "S_G001",
     "status": 200,
     "title": "OK",

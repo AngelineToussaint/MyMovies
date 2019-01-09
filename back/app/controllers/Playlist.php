@@ -28,4 +28,17 @@ class Playlist extends Controller
 
         self::render('S_PO001', false, 'Le film');
     }
+
+    public static function delete($params)
+    {
+        $playlist = new \Models\Playlist($params->playlist_id);
+
+        if (\Models\Auth::getUser()->id == $params->id && $params->id == $playlist->user_id) {
+
+            $playlist->delete();
+
+            self::render('S_D001');
+        }
+        self::render('E_A007');
+    }
 }
