@@ -19,14 +19,18 @@ class Playlist extends Controller
 
     public static function add($post, $params)
     {
-        $playlist = new \Models\Playlist();
+        if (\Models\Auth::getUser()->id == $params->id) {
+            $playlist = new \Models\Playlist();
 
-        $playlist->user_id = $params->id;
-        $playlist->id_movie = $post->id_movie;
+            $playlist->user_id = $params->id;
+            $playlist->id_movie = $post->id_movie;
 
-        $playlist->insert();
+            $playlist->insert();
 
-        self::render('S_PO001', false, 'Le film');
+            self::render('S_PO001', false, 'Le film');
+        }
+
+        self::render('E_A007');
     }
 
     public static function delete($params)
