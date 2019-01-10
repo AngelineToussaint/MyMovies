@@ -50,6 +50,20 @@ $router->group('/users', function (Group $group) {
 
     $group->add('GET', '/:id/movieviews', 'MovieViews#getAll', 'Récupérer les films de la liste des films vues d un utilisateur');
 
+    $group->add('POST', '/:id/notes', 'Note#add', 'Ajouter un commentaire sur un film', true, [], [], [
+        '*id_movie' => 'Int',
+        '*note' => 'String'
+    ]);
+
+    $group->add('POST', '/:id/comments', 'Comment#add', 'Ajouter un commentaire sur un film', true, [], [], [
+        '*id_movie' => 'Int',
+        '*comment' => 'String'
+    ]);
+
+    $group->add('PUT', '/:id/comments/:comment_id', 'Comment#edit', 'Modifier le commentaire que l utilisateur a fait', true, [], [], [
+        '*comment' => 'String'
+    ]);
+
 }, null, [], [ // Params of routes in this group
     'id' => 'Int',
 ]);
