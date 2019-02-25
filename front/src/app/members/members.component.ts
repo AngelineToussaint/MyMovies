@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Config} from "../config";
 
 @Component({
   selector: 'app-members',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private config: Config) { }
 
   ngOnInit() {
+    this.http.get(this.config.apiUrl + '/users')
+      .subscribe(data => {
+        console.log(data)
+      })
   }
 
 }
