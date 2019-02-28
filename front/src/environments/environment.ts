@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "API_URL"
+  apiUrl: "http://adriennas.synology.me/MyMovies/back/public"
 };
 
 /*
