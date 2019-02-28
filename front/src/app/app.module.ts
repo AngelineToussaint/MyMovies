@@ -26,13 +26,13 @@ import { Config, ConfigFactory } from "./config";
     MzCheckboxModule
   ],
   providers: [
-    Config,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: ConfigFactory,
-      deps: [Config, HttpClient],
-      multi: true
-    },
+    // Config,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: ConfigFactory,
+    //   deps: [Config, HttpClient],
+    //   multi: true
+    // },
   ],
   bootstrap: [AppComponent]
 })
