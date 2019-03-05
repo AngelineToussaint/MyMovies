@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Config} from "../config";
-import {environment} from '../../environments/environment';
+import {User} from '../user/user';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'app-members',
@@ -10,13 +9,16 @@ import {environment} from '../../environments/environment';
 })
 export class MembersComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-    this.http.get(environment.apiUrl + '/users')
-        .subscribe(data => {
-          console.log(data)
-        })}
+  users: User[];
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
 
+  getUsers(): void {
+    this.userService.getAll()
+      .subscribe(res => this.users = res.data);
+  }
 }

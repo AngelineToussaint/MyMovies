@@ -1,38 +1,29 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { MzButtonModule, MzCheckboxModule } from 'ngx-materialize';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MembersComponent } from './members/members.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
-import { Config, ConfigFactory } from "./config";
+import { MembersComponent } from './members/members.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembersComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MzButtonModule,
-    MzCheckboxModule
-  ],
-  providers: [
-    // Config,
-    // {
-    //   provide: APP_INITIALIZER,
-    //   useFactory: ConfigFactory,
-    //   deps: [Config, HttpClient],
-    //   multi: true
-    // },
+    MaterialModule
   ],
   bootstrap: [AppComponent]
 })

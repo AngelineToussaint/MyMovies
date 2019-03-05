@@ -1,10 +1,5 @@
-<button mz-button>
-  button
-</button>
-
-<mz-checkbox-container>
-  <input mz-checkbox
-         [label]="'Label'"
-         id="checkbox-id"
-         type="checkbox">
-</mz-checkbox-container>
+<ul>
+  <li *ngFor="let user of users">
+    {{user.email}} {{user.username}} {{user.id}} {{user.password}}
+  </li>
+</ul>
