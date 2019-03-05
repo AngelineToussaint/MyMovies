@@ -10,13 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MembersComponent } from './members/members.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MemberComponent } from './member/member.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MembersComponent
+    MembersComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,
