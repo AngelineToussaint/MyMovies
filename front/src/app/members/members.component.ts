@@ -19,6 +19,6 @@ export class MembersComponent implements OnInit {
 
   getUsers(): void {
     this.userService.getAll()
-      .subscribe(res => this.users = res.data);
+      .subscribe(users => this.users = users);
   }
 }

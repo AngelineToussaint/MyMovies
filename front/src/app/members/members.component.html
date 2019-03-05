@@ -1,5 +1,10 @@
-<ul>
-  <li *ngFor="let user of users">
-    {{user.email}} {{user.username}} {{user.id}} {{user.password}}
-  </li>
-</ul>
+<mat-list>
+  <mat-list-item *ngFor="let user of users">
+    <mat-icon matListIcon>folder</mat-icon>
+    <h3 matLine> {{user.username}} </h3>
+    <p matLine>
+      <span> {{user.username}} </span>
+      <span class="demo-2"> -- {{user.id}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>

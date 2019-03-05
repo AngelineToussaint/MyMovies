@@ -71,7 +71,7 @@ class Controller
             $res->message = preg_replace('/:key/', $key, $res->message);
         }
 
-        if ($success == 'error') {
+        if (!$success) {
             $render = ['error' => $res];
 
             // Register error in logs
