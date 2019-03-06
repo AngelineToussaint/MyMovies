@@ -22,6 +22,14 @@ export class UserService {
       );
   }
 
+  get(id: number): Observable<User> {
+    return this.http.get<User>(environment.apiUrl + this.ref + '/' + id)
+      .pipe(
+        tap(_ => console.log('fetched user')),
+        catchError(this.handleError<User>())
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
