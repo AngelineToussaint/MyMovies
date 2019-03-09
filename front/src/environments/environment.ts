@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'API_URL',
   apiTMDBUrl: 'API_URL',
-  apiTMDBToken: 'API_TOKEN',
+  apiTMDBToken: 'API_TOKEN'
 };
 
 /*
