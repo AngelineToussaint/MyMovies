@@ -1,3 +1,36 @@
-<div *ngIf="user">
-  {{user.username}}
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-icon matCardAvatar>account_circle</mat-icon>
+    <mat-card-title>{{user.username}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Films à voir">
+        <div *ngFor="let movie of playlist">
+          {{movie.title}}
+        </div>
+      </mat-tab>
+      <mat-tab label="Films vues">
+        <div *ngFor="let movie of moviesViews">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{movie.title}}</mat-card-title>
+              <mat-card-subtitle>
+                <div *ngFor="let genre of movie.genres">
+                  {{genre.name}}
+                </div>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{pictureUrl + movie.poster_path}}" alt="Picture of movies">
+            <mat-card-content>
+              <p>
+                {{movie.overview}}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
