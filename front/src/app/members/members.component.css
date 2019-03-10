@@ -1,0 +1,6 @@
+mat-list-item {
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+mat-list-item:hover { background: #efefef; transition: background-color 0.3s; }
