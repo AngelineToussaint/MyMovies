@@ -7,6 +7,7 @@ export class User {
   username: string;
   email: string;
   password: string;
+  date: number;
   movieViews: MovieView[];
   playlist: Playlist[];
   note: Note[];
