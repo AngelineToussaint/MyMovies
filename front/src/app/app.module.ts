@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MembersComponent } from './members/members.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MemberComponent } from './member/member.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MemberComponent } from './member/member.component';
     HeaderComponent,
     FooterComponent,
     MembersComponent,
-    MemberComponent
+    MemberComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
