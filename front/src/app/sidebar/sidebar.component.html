@@ -1,3 +1,11 @@
-<p>
-  sidebar works!
-</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-icon matCardAvatar>account_circle</mat-icon>
+    <mat-card-title>test</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let note of notes">
+      {{note.note}}
+    </div>
+  </mat-card-content>
+</mat-card>
