@@ -1,6 +1,6 @@
 import {MovieView} from '../movie/movieView';
 import {Playlist} from '../movie/playlist';
-import {Note} from '../movie/note';
+import {Note} from '../note/note';
 
 export class User {
   id: number;

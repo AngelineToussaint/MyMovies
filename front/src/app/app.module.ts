@@ -12,6 +12,10 @@ import { MembersComponent } from './members/members.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MemberComponent } from './member/member.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { MovieComponent } from './movie/movie.component';
+import { NoteComponent } from './note/note.component';
+import { CommentComponent } from './comment/comment.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     MembersComponent,
     MemberComponent,
-    SidebarComponent
+    SidebarComponent,
+    MovieComponent,
+    NoteComponent,
+    CommentComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Note} from '../movie/note';
-import {NoteService} from '../movie/note.service';
+import {Note} from '../note/note';
+import {NoteService} from '../note/note.service';
 import {MovieService} from '../movie/movie.service';
 import {environment} from '../../environments/environment';
 
