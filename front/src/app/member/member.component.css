@@ -1,0 +1,11 @@
+.movie-card {
+  float: left;
+  margin: 20px;
+  width: 400px;
+  height: auto;
+}
+
+.movie-card mat-card-content {
+  height: 100px;
+  overflow-y: auto;
+}
