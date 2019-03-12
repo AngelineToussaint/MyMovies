@@ -1,8 +1,15 @@
 .movie-card {
   float: left;
   margin: 20px;
-  width: 400px;
-  height: auto;
+  width: 25%;
+}
+
+@media screen and (max-width: 1300px){
+  .movie-card { width: 40%; }
+}
+
+@media screen and (max-width: 1020px) {
+  .movie-card { width: calc(100% - 40px); }
 }
 
 .movie-card mat-card-content {
