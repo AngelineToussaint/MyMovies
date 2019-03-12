@@ -1,3 +1,5 @@
-<p>
-  movies works!
-</p>
+<input type="text" [(ngModel)]="search">
+<button (click)="getMovies(search)">Recherche</button>
+<div *ngFor="let movie of movies">
+  {{movie.title}}
+</div>
