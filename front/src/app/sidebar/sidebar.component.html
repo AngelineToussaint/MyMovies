@@ -1,11 +1,18 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-icon matCardAvatar>account_circle</mat-icon>
-    <mat-card-title>test</mat-card-title>
+    <mat-icon matCardAvatar>grade</mat-icon>
+    <mat-card-title>Dernières notes</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div *ngFor="let note of notes">
-      {{note.note}}
+
+    <div *ngFor="let note of notes" routerLink="/film/{{note.movie.id}}">
+      <img src="{{pictureUrl + note.movie.poster_path}}" alt="Picture of movie">
+      <p>
+        {{note.movie.title}} <br> Note : {{note.note}} / 5
+      </p>
+
+      <hr class="clear">
     </div>
+
   </mat-card-content>
 </mat-card>
