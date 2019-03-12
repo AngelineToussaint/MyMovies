@@ -16,6 +16,8 @@ $router->add('GET', '/docs', "Docs#index", "Documentation", null);
 // INFO : To use API with routes protected by token, you need to send the response token in header of all requests : "X-Auth-Token"
 $router->add('POST', '/auth', "Auth#check", "Connexion à l API");
 
+// Get last notes
+$router->add('GET', '/notes/last', "Note#getLast", "Last notes");
 
 // Group of routes
 $router->group('/users', function (Group $group) {

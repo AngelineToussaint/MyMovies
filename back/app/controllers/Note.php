@@ -5,6 +5,16 @@ use Kernel\Tools\Utils;
 
 class Note extends Controller
 {
+    public static function getLast()
+    {
+        $notes = \Models\Note::getAll("id DESC", "5");
+        foreach($notes as $note) {
+            $note->infoFk();
+        }
+        
+        self::render('S_G001', $notes);
+    }
+    
     public static function add($post, $params)
     {
         if (\Models\Auth::getUser()->id == $params->id) {

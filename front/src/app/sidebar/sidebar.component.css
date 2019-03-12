@@ -1,0 +1,4 @@
+hr.clear { visibility: hidden; clear: both; }
+mat-card-content > div { outline: none; cursor: pointer; }
+mat-card-content img { width: 30px; float: right; }
+mat-card-content p { float: left; }

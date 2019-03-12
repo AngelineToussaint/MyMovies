@@ -1,0 +1,3 @@
+hr.clear { visibility: hidden; clear: both; }
+.router-content { width: 76%; float: left; }
+app-sidebar { width: 22%; float: right }
