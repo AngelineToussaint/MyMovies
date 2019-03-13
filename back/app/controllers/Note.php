@@ -14,7 +14,12 @@ class Note extends Controller
         
         self::render('S_G001', $notes);
     }
-    
+
+    public static function getByMovieId($params)
+    {
+        self::render('S_G001', \Models\Note::find(['idMovie' => $params->id]));
+    }
+
     public static function add($post, $params)
     {
         if (\Models\Auth::getUser()->id == $params->id) {
