@@ -22,6 +22,14 @@ export class NoteService {
       );
   }
 
+  getByMovieId(id: number): Observable<Note[]> {
+    return this.http.get<Note[]>(environment.apiUrl + this.ref + '/movies/' + id)
+      .pipe(
+        tap(_ => console.log('fetched notes by movie id')),
+        catchError(this.handleError([]))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

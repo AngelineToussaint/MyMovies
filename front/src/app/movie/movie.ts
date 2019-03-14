@@ -6,4 +6,6 @@ export class Movie {
   overview: string;
   title: string;
   poster_path: string;
+  release_date: string;
+  budget: number;
 }

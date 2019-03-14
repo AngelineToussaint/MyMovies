@@ -1,0 +1,12 @@
+.col {
+  float: left;
+  margin: 10px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: rgba(0,0,0,.87);
+}
+
+.col.picture { width: calc(30% - 40px); }
+
+.col.picture img { width: 100%; }
+
+.col.info { width: calc(70% - 40px); }
