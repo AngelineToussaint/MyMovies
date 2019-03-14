@@ -26,12 +26,12 @@ class Note extends Controller
             $note = new \Models\Note();
 
             $note->user_id = $params->id;
-            $note->id_movie = $post->id_movie;
+            $note->idMovie = $post->id_movie;
             $note->note = ($post->note > 0 && $post->note < 6) ? $post->note : 5;
 
             $note->insert();
 
-            self::render('S_PO001', false, 'La note');
+            self::render('S_PO001', $note, 'La note');
         }
 
         self::render('E_A007');

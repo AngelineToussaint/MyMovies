@@ -29,6 +29,14 @@ $router->group('/notes', function (Group $group) {
 });
 
 // Group of routes
+$router->group('/comments', function (Group $group) {
+
+    // Get comments by movie id
+    $group->add('GET', '/movies/:id', "Comment#getByMovieId", "Récupérer les commentaires par id de film");
+
+});
+
+// Group of routes
 $router->group('/users', function (Group $group) {
 
     $group->add('POST', '', 'User#add', 'Ajouter un nouvel utilisateur', null, [], [], [
