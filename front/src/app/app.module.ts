@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MemberComponent } from './member/member.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MovieComponent } from './movie/movie.component';
-import { NoteComponent } from './note/note.component';
 import { CommentComponent } from './comment/comment.component';
 import { MoviesComponent } from './movies/movies.component';
 import {FrCurrency} from './fr-currency';
@@ -27,7 +26,6 @@ import {FrCurrency} from './fr-currency';
     MemberComponent,
     SidebarComponent,
     MovieComponent,
-    NoteComponent,
     CommentComponent,
     MoviesComponent,
     FrCurrency

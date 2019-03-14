@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../environments/environment';
 import {Note} from '../note/note';
 import {NoteService} from '../note/note.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-movie',
@@ -21,6 +22,7 @@ export class MovieComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private noteService: NoteService,
+    private snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) { }
 
@@ -36,14 +38,31 @@ export class MovieComponent implements OnInit {
 
         this.noteService.getByMovieId(id)
           .subscribe(notes => {
-            let sum = 0;
-            for (const note of notes) {
-              sum = sum + +note.note;
-            }
-            this.avgNote = (notes.length > 0) ? (sum / notes.length) : 0;
-
             this.notes = notes;
+
+            this.average();
           });
+      });
+  }
+
+  average(): void {
+    let sum = 0;
+    for (const note of this.notes) {
+      sum = sum + +note.note;
+    }
+    this.avgNote = (this.notes.length > 0) ? (sum / this.notes.length) : 0;
+  }
+
+  note(e): void {
+    this.noteService.add(this.movie.id, e.value)
+      .subscribe(note => {
+        this.snackBar.open('Note enregistrée !', 'Ok !', {
+          duration: 5000
+        });
+
+        this.notes.push(note);
+
+        this.average();
       });
   }
 

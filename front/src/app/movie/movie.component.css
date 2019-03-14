@@ -10,3 +10,5 @@
 .col.picture img { width: 100%; }
 
 .col.info { width: calc(70% - 40px); }
+
+mat-toolbar span { margin: 0 5px; }

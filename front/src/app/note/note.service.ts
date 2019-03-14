@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {catchError, tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Note} from './note';
 
 @Injectable({
@@ -27,6 +27,25 @@ export class NoteService {
       .pipe(
         tap(_ => console.log('fetched notes by movie id')),
         catchError(this.handleError([]))
+      );
+  }
+
+  add(id: number, note: number): Observable<Note> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Auth-Token': localStorage.getItem('token').toString()
+      })
+    };
+
+    const body = new HttpParams()
+      .set('id_movie', id.toString())
+      .set('note', note.toString());
+
+    return this.http.post<Note>(environment.apiUrl + '/users/' + localStorage.getItem('user_id') + this.ref, body.toString(), httpOptions)
+      .pipe(
+        tap(_ => console.log('added note')),
+        catchError(this.handleError<Note>())
       );
   }
 
