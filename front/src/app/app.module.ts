@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { MovieComponent } from './movie/movie.component';
 import { NoteComponent } from './note/note.component';
 import { CommentComponent } from './comment/comment.component';
 import { MoviesComponent } from './movies/movies.component';
+import {FrCurrency} from './fr-currency';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MoviesComponent } from './movies/movies.component';
     MovieComponent,
     NoteComponent,
     CommentComponent,
-    MoviesComponent
+    MoviesComponent,
+    FrCurrency
   ],
   imports: [
     BrowserModule,
