@@ -5,6 +5,7 @@ import {Movie} from './movie';
 import {catchError, tap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,14 @@ export class MovieService {
   private queryParams = '?api_key=' + environment.apiTMDBToken + '&language=fr-FR';
 
   constructor(private http: HttpClient) { }
+
+  getBySearch(search: string): Observable<any> {
+    return this.http.get<any>(environment.apiTMDBUrl + '/search/movie' + this.queryParams + '&query=' + search)
+      .pipe(
+        tap(_ => console.log('fetched movies')),
+        catchError(this.handleError([]))
+      );
+  }
 
   get(id: number): Observable<Movie> {
     return this.http.get<Movie>(environment.apiTMDBUrl + '/movie/' + id + this.queryParams)
