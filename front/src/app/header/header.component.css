@@ -1,1 +1,3 @@
 mat-toolbar { margin-bottom: 8px; }
+
+.fill-remaining-space { flex: 1 1 auto; }
