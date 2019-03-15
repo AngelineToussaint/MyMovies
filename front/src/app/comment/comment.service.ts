@@ -3,34 +3,24 @@ import {Observable, of} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {catchError, tap} from 'rxjs/operators';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Note} from './note';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoteService {
-
-  private ref = '/notes';
+export class CommentService {
+  private ref = '/comments';
 
   constructor(private http: HttpClient) { }
 
-  getLast(): Observable<Note[]> {
-    return this.http.get<Note[]>(environment.apiUrl + this.ref + '/last')
+  getByMovieId(id: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(environment.apiUrl + this.ref + '/movies/' + id)
       .pipe(
-        tap(_ => console.log('fetched notes')),
+        tap(_ => console.log('fetched comments by movie id')),
         catchError(this.handleError([]))
       );
   }
 
-  getByMovieId(id: number): Observable<Note[]> {
-    return this.http.get<Note[]>(environment.apiUrl + this.ref + '/movies/' + id)
-      .pipe(
-        tap(_ => console.log('fetched notes by movie id')),
-        catchError(this.handleError([]))
-      );
-  }
-
-  add(id: number, note: number): Observable<Note> {
+  addComment(id: number, comment: string): Observable<Comment> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -40,12 +30,12 @@ export class NoteService {
 
     const body = new HttpParams()
       .set('id_movie', id.toString())
-      .set('note', note.toString());
+      .set('comment', comment);
 
-    return this.http.post<Note>(environment.apiUrl + '/users/' + localStorage.getItem('user_id') + this.ref, body.toString(), httpOptions)
+    return this.http.post<Comment>(environment.apiUrl + '/users/' + localStorage.getItem('user_id') + this.ref, body.toString(), httpOptions)
       .pipe(
         tap(_ => console.log('added note')),
-        catchError(this.handleError<Note>())
+        catchError(this.handleError<Comment>())
       );
   }
 

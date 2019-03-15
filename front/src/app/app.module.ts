@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MemberComponent } from './member/member.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MovieComponent } from './movie/movie.component';
-import { NoteComponent } from './note/note.component';
 import { CommentComponent } from './comment/comment.component';
 import { MoviesComponent } from './movies/movies.component';
+import {FrCurrency} from './fr-currency';
 
 @NgModule({
   declarations: [
@@ -26,16 +27,17 @@ import { MoviesComponent } from './movies/movies.component';
     MemberComponent,
     SidebarComponent,
     MovieComponent,
-    NoteComponent,
     CommentComponent,
-    MoviesComponent
+    MoviesComponent,
+    FrCurrency
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

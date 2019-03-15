@@ -1,3 +1,27 @@
-<p>
-  movies works!
-</p>
+<div class="form" style="text-align: center">
+  <mat-form-field style="margin: 5px">
+    <input matInput type="text" placeholder="Recherche..." [(ngModel)]="search">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="getMovies(search)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+<mat-list-item *ngFor="let movie of movies">
+  <mat-card class="movie-card">
+    <mat-card-header>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>
+            <span *ngFor="let genre of movie.genres; last as isLast">
+              {{genre.name}} <span *ngIf="!isLast">/</span>
+            </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{pictureUrl + movie.poster_path}}" alt="Picture of movies">
+    <mat-card-content>
+      <p>
+        {{movie.overview}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</mat-list-item>
+

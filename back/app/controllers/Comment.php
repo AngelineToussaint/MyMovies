@@ -11,12 +11,14 @@ class Comment extends Controller
             $comment = new \Models\Comment();
 
             $comment->user_id = $params->id;
-            $comment->id_movie = $post->id_movie;
+            $comment->idMovie = $post->id_movie;
             $comment->content = htmlspecialchars($post->comment);
 
             $comment->insert();
 
-            self::render('S_PO001', false, 'Le commentaire');
+            $comment->infoFk();
+
+            self::render('S_PO001', $comment, 'Le commentaire');
         }
 
         self::render('E_A007');
@@ -36,5 +38,16 @@ class Comment extends Controller
         }
 
         self::render('E_A007');
+    }
+
+    public static function getByMovieId($params)
+    {
+        $comments = \Models\Comment::find(["idMovie" => $params->id]);
+
+        foreach ($comments as $comment) {
+            $comment->infoFk();
+        }
+
+        self::render("S_G001", $comments);
     }
 }

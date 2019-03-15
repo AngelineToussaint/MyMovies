@@ -1,0 +1,9 @@
+mat-list-item b {
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 2px solid #333;
+}
+
+.comments-title { font-family: Roboto,"Helvetica Neue",sans-serif; }
+
+.comments { overflow-y: auto; height: 200px; }

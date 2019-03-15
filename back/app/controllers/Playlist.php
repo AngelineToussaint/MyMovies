@@ -23,7 +23,7 @@ class Playlist extends Controller
             $playlist = new \Models\Playlist();
 
             $playlist->user_id = $params->id;
-            $playlist->id_movie = $post->id_movie;
+            $playlist->idMovie = $post->id_movie;
 
             $playlist->insert();
 

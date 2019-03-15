@@ -23,7 +23,7 @@ class MovieViews extends Controller
             $movieViews = new \Models\MovieViews();
 
             $movieViews->user_id = $params->id;
-            $movieViews->id_movie = $post->id_movie;
+            $movieViews->idMovie = $post->id_movie;
 
             $movieViews->insert();
 
