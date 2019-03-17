@@ -1,0 +1,7 @@
+h1, h4, .form {
+  text-align: center
+}
+
+mat-form-field {
+  margin: 5px
+}

@@ -17,6 +17,7 @@ import { MovieComponent } from './movie/movie.component';
 import { CommentComponent } from './comment/comment.component';
 import { MoviesComponent } from './movies/movies.component';
 import {FrCurrency} from './fr-currency';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FrCurrency} from './fr-currency';
     MovieComponent,
     CommentComponent,
     MoviesComponent,
-    FrCurrency
+    FrCurrency,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

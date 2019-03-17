@@ -1,0 +1,44 @@
+<h1>Bienvenue sur le site My Movies</h1>
+<h4>Ce site vous permet de mettre des films dans votre playlist.<br>
+Il vous permet aussi de les enregistrer dans une liste pour les regarder plus tard.</h4>
+<mat-card-content>
+  <mat-tab-group>
+    <mat-tab label="Inscription">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="form">
+            <mat-form-field>
+              <input matInput type="text" placeholder="email" [(ngModel)]="email">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="identifiant" [(ngModel)]="username">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="password">
+            </mat-form-field><br>
+            <button mat-flat-button color="primary" (click)="signin()">
+              S'inscrire
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Connexion">
+      <mat-card class="home-card">
+        <mat-card-content>
+          <div class="form">
+            <mat-form-field>
+              <input matInput type="text" placeholder="email" [(ngModel)]="email">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="password">
+            </mat-form-field><br>
+            <button mat-flat-button color="primary" (click)="login()">
+              Se connecter
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card-content>

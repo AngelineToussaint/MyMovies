@@ -6,9 +6,10 @@
     <mat-icon>search</mat-icon>
   </button>
 </div>
+
 <mat-list-item *ngFor="let movie of movies">
   <mat-card class="movie-card">
-    <mat-card-header>
+    <mat-card-header routerLink="/film/{{movie.id}}">
       <mat-card-title>{{movie.title}}</mat-card-title>
       <mat-card-subtitle>
             <span *ngFor="let genre of movie.genres; last as isLast">
