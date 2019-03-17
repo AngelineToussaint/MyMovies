@@ -31,6 +31,23 @@ export class UserService {
       );
   }
 
+  addTo(id: number, type: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Auth-Token': localStorage.getItem('token').toString()
+      })
+    };
+
+    const body = new HttpParams().set('id_movie', id.toString());
+
+    return this.http.post<any>(environment.apiUrl + this.ref + '/' + localStorage.getItem('user_id') + '/' + type , body.toString(), httpOptions)
+      .pipe(
+        tap(_ => console.log('added' + type)),
+        catchError(this.handleError<any>())
+      );
+  }
+
   add(email: string, username: string, password: string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({

@@ -16,6 +16,7 @@ class User extends Controller
         Utils::setValuesInObject($user, $post, ['id']);
 
         $user->password = password_hash($user->password, PASSWORD_BCRYPT);
+        $user->date = time();
 
         $user->insert();
 

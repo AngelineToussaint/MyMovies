@@ -11,4 +11,7 @@
 
 .col.info { width: calc(70% - 40px); }
 
+.btn-playlist { margin-right: 15px; margin-top: 20px; }
+.btn-movieview { margin-bottom: 100px; }
+
 mat-toolbar span { margin: 0 5px; }
