@@ -8,15 +8,15 @@ Il vous permet aussi de les enregistrer dans une liste pour les regarder plus ta
         <mat-card-content>
           <div class="form">
             <mat-form-field>
-              <input matInput type="text" placeholder="email" [(ngModel)]="email">
+              <input matInput type="text" placeholder="email" [(ngModel)]="signinEmail">
             </mat-form-field><br>
             <mat-form-field>
-              <input matInput type="text" placeholder="identifiant" [(ngModel)]="username">
+              <input matInput type="text" placeholder="identifiant" [(ngModel)]="signinUsername">
             </mat-form-field><br>
             <mat-form-field>
-              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="password">
+              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="signinPassword">
             </mat-form-field><br>
-            <button mat-flat-button color="primary" (click)="signin()">
+            <button mat-flat-button color="primary" (click)="signin(signinEmail, signinUsername, signinPassword)">
               S'inscrire
             </button>
           </div>
@@ -28,12 +28,12 @@ Il vous permet aussi de les enregistrer dans une liste pour les regarder plus ta
         <mat-card-content>
           <div class="form">
             <mat-form-field>
-              <input matInput type="text" placeholder="email" [(ngModel)]="email">
+              <input matInput type="text" placeholder="email" [(ngModel)]="loginEmail">
             </mat-form-field><br>
             <mat-form-field>
-              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="password">
+              <input matInput type="text" placeholder="Mot de passe" [(ngModel)]="loginPassword">
             </mat-form-field><br>
-            <button mat-flat-button color="primary" (click)="login()">
+            <button mat-flat-button color="primary" (click)="login(loginEmail, loginPassword)">
               Se connecter
             </button>
           </div>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {User} from './user';
 import {catchError, tap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {Note} from '../note/note';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,43 @@ export class UserService {
       .pipe(
         tap(_ => console.log('fetched user')),
         catchError(this.handleError<User>())
+      );
+  }
+
+  add(email: string, username: string, password: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+
+    const body = new HttpParams()
+      .set('email', email)
+      .set('username', username)
+      .set('password', password);
+
+    return this.http.post<any>(environment.apiUrl + this.ref, body.toString(), httpOptions)
+      .pipe(
+        tap(_ => console.log('added user')),
+        catchError(this.handleError<any>())
+      );
+  }
+
+  check(email: string, password: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    };
+
+    const body = new HttpParams()
+      .set('email', email)
+      .set('password', password);
+
+    return this.http.post<any>(environment.apiUrl + '/auth', body.toString(), httpOptions)
+      .pipe(
+        tap(_ => console.log('authentication')),
+        catchError(this.handleError<any>())
       );
   }
 
