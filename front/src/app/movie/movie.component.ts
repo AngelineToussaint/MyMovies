@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import {Note} from '../note/note';
 import {NoteService} from '../note/note.service';
 import {MatSnackBar} from '@angular/material';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'app-movie',
@@ -22,6 +23,7 @@ export class MovieComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private noteService: NoteService,
+    private userService: UserService,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute
   ) { }
@@ -64,6 +66,30 @@ export class MovieComponent implements OnInit {
 
         this.average();
       });
+  }
+
+  addTo(type: string): void {
+    if (localStorage.getItem('token') !== null) {
+      this.userService.addTo(this.movie.id, type)
+        .subscribe(res => {
+          let message = '';
+
+          if (res === undefined) {
+            message = 'Film déjà enregistré dans la liste !';
+          } else {
+            message = 'Film enregistré dans la liste !';
+          }
+
+          this.snackBar.open(message, 'Ok !', {
+            duration: 5000
+          });
+
+        });
+    } else {
+      this.snackBar.open('Vous devez être connecté pour ajouter un film à votre liste.', 'Ok !', {
+        duration: 5000
+      });
+    }
   }
 
 }

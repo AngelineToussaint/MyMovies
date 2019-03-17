@@ -20,14 +20,18 @@ class MovieViews extends Controller
     public static function add($post, $params)
     {
         if (\Models\Auth::getUser()->id == $params->id) {
-            $movieViews = new \Models\MovieViews();
+            if (null == \Models\MovieViews::findFirst(['user_id' => $params->id, 'idMovie' => $post->id_movie])) {
+                $movieViews = new \Models\MovieViews();
 
-            $movieViews->user_id = $params->id;
-            $movieViews->idMovie = $post->id_movie;
+                $movieViews->user_id = $params->id;
+                $movieViews->idMovie = $post->id_movie;
 
-            $movieViews->insert();
+                $movieViews->insert();
 
-            self::render('S_PO001', false, 'Le film');
+                self::render('S_PO001', false, 'Le film');
+            }
+
+            self::render('E_A006', false, 'movieviews');
         }
 
         self::render('E_A007');

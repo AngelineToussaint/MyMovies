@@ -17,6 +17,9 @@
         {{genre.name}} <span *ngIf="!isLast">/</span>
       </span>
     </mat-toolbar>
+
+    <button class="btn-playlist" color="primary" mat-raised-button (click)="addTo('playlist')">Film à voir ! <mat-icon>favorite</mat-icon></button>
+    <button class="btn-movieview" color="primary" mat-raised-button (click)="addTo('movieviews')">Film vue ! <mat-icon>add</mat-icon></button>
   </div>
 
   <app-comment></app-comment>

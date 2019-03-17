@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {User} from './user';
 import {catchError, tap} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {Note} from '../note/note';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,23 @@ export class UserService {
       .pipe(
         tap(_ => console.log('fetched user')),
         catchError(this.handleError<User>())
+      );
+  }
+
+  addTo(id: number, type: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Auth-Token': localStorage.getItem('token').toString()
+      })
+    };
+
+    const body = new HttpParams().set('id_movie', id.toString());
+
+    return this.http.post<any>(environment.apiUrl + this.ref + '/' + localStorage.getItem('user_id') + '/' + type , body.toString(), httpOptions)
+      .pipe(
+        tap(_ => console.log('added' + type)),
+        catchError(this.handleError<any>())
       );
   }
 
