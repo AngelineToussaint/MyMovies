@@ -1,0 +1,26 @@
+<div *ngIf="movie">
+  <div class="col picture">
+    <img src="{{pictureUrl + movie.poster_path}}" alt="Picture of movie">
+  </div>
+  <div class="col info">
+    <h1>{{movie.title}}</h1>
+    <h2>Date de sortie : {{movie.release_date | date: 'dd/MM/yyyy'}}</h2>
+    <p>Budget : {{movie.budget | currency: 'EUR': true | frCurrency}}</p>
+    <p>Note : {{avgNote}}/5</p>
+    <p style="font-weight: bold">Notez ce film : <mat-slider thumbLabel min="0" max="5" step="1" (change)="note($event)"></mat-slider></p>
+
+    <h3>Synopsis</h3>
+    <p>{{movie.overview}}</p>
+
+    <mat-toolbar>
+      <span *ngFor="let genre of movie.genres; last as isLast">
+        {{genre.name}} <span *ngIf="!isLast">/</span>
+      </span>
+    </mat-toolbar>
+
+    <button class="btn-playlist" color="primary" mat-raised-button (click)="addTo('playlist')">Film à voir ! <mat-icon>favorite</mat-icon></button>
+    <button class="btn-movieview" color="primary" mat-raised-button (click)="addTo('movieviews')">Film vue ! <mat-icon>add</mat-icon></button>
+  </div>
+
+  <app-comment></app-comment>
+</div>

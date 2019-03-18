@@ -1,0 +1,9 @@
+* { font-family: Roboto,"Helvetica Neue",sans-serif; }
+
+h1, h4, .form, p {
+  text-align: center
+}
+
+mat-form-field {
+  margin: 5px
+}

@@ -39,10 +39,10 @@ class Twig
     public static function addGlobal($twig)
     {
         $twig->addGlobal('g_api_name', 'MyMovies API');
-        $twig->addGlobal('g_base_uri', 'http://' . $_SERVER['HTTP_HOST']);
+        $twig->addGlobal('g_base_uri', 'http://' . $_SERVER['HTTP_HOST'] . '/MyMovies/back/public');
         $twig->addGlobal('g_url', 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-        $twig->addGlobal('g_js', '/js/');
-        $twig->addGlobal('g_css', '/css/');
-        $twig->addGlobal('g_img', '/img/');
+        $twig->addGlobal('g_js', './js/');
+        $twig->addGlobal('g_css', './css/');
+        $twig->addGlobal('g_img', './img/');
     }
 }

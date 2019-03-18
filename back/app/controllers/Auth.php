@@ -14,6 +14,8 @@ class Auth extends Controller
      */
     public static function check($post)
     {
+        User::$retrieveEmailAndPw = true;
+
         $user = User::check($post->email, $post->password);
         if ($user) {
             // create token here
@@ -24,7 +26,7 @@ class Auth extends Controller
             $auth->date    = time();
             $auth->insert();
 
-            self::render('S_PO001', ['token' => $token]);
+            self::render('S_PO001', ['token' => $token, 'id' => $auth->user_id]);
         }
 
         self::render('E_A004');

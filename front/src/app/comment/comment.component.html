@@ -1,0 +1,21 @@
+<h2 class="comments-title">Commentaires</h2>
+
+<div class="form">
+  <mat-form-field style="margin: 5px">
+    <input matInput type="text" placeholder="Ajouter un commentaire" [(ngModel)]="comment">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="addComment(comment)">
+    <mat-icon>comments</mat-icon>
+  </button>
+</div>
+
+
+<mat-list class="comments">
+  <div *ngFor="let comment of comments">
+    <mat-list-item>
+      <b>{{comment.user.username}}</b> {{comment.content}}
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>

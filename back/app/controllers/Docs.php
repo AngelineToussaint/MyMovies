@@ -29,11 +29,11 @@ class Docs extends Controller
                 $ref = explode('/', $route->endpoint)[0];
 
                 $route->errors = [];
-                if ($route->token) $route->errors[] = self::_addErrorToRoute('A002', $route->method, $route->endpoint);
-                if (!empty($route->roles)) $route->errors[] = self::_addErrorToRoute('A003', $route->method, $route->endpoint);
+                if ($route->token) $route->errors[] = self::_addErrorToRoute('E_A002', $route->method, $route->endpoint);
+                if (!empty($route->roles)) $route->errors[] = self::_addErrorToRoute('E_A003', $route->method, $route->endpoint);
 
                 foreach ($route->requests as $key => $type) {
-                    if ($key[0] === "*") $route->errors[] = self::_addErrorToRoute('A005', $route->method, $route->endpoint, $key);
+                    $route->errors[] = self::_addErrorToRoute('E_A005', $route->method, $route->endpoint, preg_replace('#\*#', '', $key));
                 }
 
                 $allRoutes[$ref][] = $route;
@@ -57,25 +57,14 @@ class Docs extends Controller
 
         foreach ($codes as $item) {
             if ($item->code == $code) {
-                if (null != $key) {
-                    $key = substr($key, 1, strlen($key));
-                    return "{\n".
-                          "  \"error\": {\n".
-                          "    \"code\": \"$code\",\n".
-                          "    \"status\": $item->status,\n".
-                          "    \"title\": \"$item->title\",\n".
-                          "    \"method\": \"$method\",\n".
-                          "    \"endpoint\": \"/$endpoint\",\n".
-                          "    \"key\": \"$key\"\n".
-                          "  }\n".
-                        "}";
-                }
+                $msg = strpos($item->message, ':key') ? preg_replace('#:key#', $key, $item->message) : $item->message;
 
                 return "{\n".
                     "  \"error\": {\n".
                     "    \"code\": \"$code\",\n".
                     "    \"status\": $item->status,\n".
                     "    \"title\": \"$item->title\",\n".
+                    "    \"message\": \"$msg\",\n".
                     "    \"method\": \"$method\",\n".
                     "    \"endpoint\": \"/$endpoint\",\n".
                     "  }\n".
@@ -122,7 +111,7 @@ class Docs extends Controller
         $successCodes = [];
         $errorCodes = [];
         foreach ($codes as $code) {
-            if ($code->success) {
+            if ($code->code[0] == 'S') {
                 $successCodes[] = $code;
             } else {
                 $errorCodes[] = $code;

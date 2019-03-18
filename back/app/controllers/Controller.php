@@ -71,14 +71,16 @@ class Controller
             $res->message = preg_replace('/:key/', $key, $res->message);
         }
 
-        $render = [
-            $success ? 'success' : 'error' => $res
-        ];
+        if (!$success) {
+            $render = ['error' => $res];
 
-        // Register error in logs
-        if (!$success) self::_addEventLog($code, $key, $res->status, $res->method, $res->endpoint);
+            // Register error in logs
+            if (!$success) self::_addEventLog($code, $key, $res->status, $res->method, $res->endpoint);
 
-        if (false !== $data) $render['data'] = (!empty($data) ? $data : null);
+            if (false !== $data) $render['data'] = (!empty($data) ? $data : null);
+        } else {
+            $render = $data;
+        }
 
         http_response_code($res->status);
         self::_toJson($render);

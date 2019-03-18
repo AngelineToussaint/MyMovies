@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>MyMovies</span>
+
+  <span class="fill-remaining-space"></span>
+
+  <button mat-flat-button color="primary" routerLink="/">Accueil</button>
+  <button mat-flat-button color="primary" routerLink="/films">Films</button>
+  <button mat-flat-button color="primary" routerLink="/membres">Membres</button>
+  <button mat-flat-button color="primary" *ngIf="logged" (click)="logout()">Déconnexion</button>
+</mat-toolbar>

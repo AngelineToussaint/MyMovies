@@ -1,0 +1,9 @@
+<mat-list>
+  <mat-list-item *ngFor="let user of users" routerLink="/membre/{{user.id}}">
+    <mat-icon matListIcon>account_circle</mat-icon>
+    <h3 matLine> {{user.username}} </h3>
+    <p matLine>
+      <span> Inscrit depuis le {{user.date * 1000 | date: 'dd/MM/yyyy'}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>

@@ -21,13 +21,13 @@
     "code": "E_A004",
     "status": 401,
     "title": "Invalid login",
-    "message": "Incorrect information of connection. The email or the password does not valid."
+    "message": "Les informations de connexion sont incorrect. L'email ou le mot de passe ne sont pas valides."
   },
   {
     "code": "E_A005",
     "status": 422,
     "title": "Error with this property",
-    "message": "The :property may not exist or can contain an error in the name or in the format."
+    "message": "Le champs ':key' n'existe pas ou peut contenir une erreur dans le format."
   },
   {
     "code": "E_A006",
@@ -36,27 +36,33 @@
     "message": "No content found with this id in the table :key."
   },
   {
+    "code": "E_A007",
+    "status": 422,
+    "title": "User is not owner",
+    "message": "Vous n'êtes pas le propriétaire de cette ressource."
+  },
+  {
     "code": "S_G001",
     "status": 200,
     "title": "OK",
-    "message": "The content is retrieved with success"
+    "message": "Le contenu a bien été récupéré."
   },
   {
     "code": "S_PO001",
     "status": 201,
     "title": "Successful added",
-    "message": "The content is added with success"
+    "message": ":key a été enregistré !"
   },
   {
     "code": "S_PU001",
     "status": 201,
     "title": "Successful updated",
-    "message": "The content is updated with success"
+    "message": ":key a été modifié !"
   },
   {
     "code": "S_D001",
     "status": 200,
     "title": "Successful deleted",
-    "message": "The content is deleted or archived with success"
+    "message": "Le contenu a été supprimé ou archivé avec succès"
   }
 ]

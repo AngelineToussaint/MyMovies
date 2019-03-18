@@ -1,1 +1,3 @@
 Code, Key, Date, Status, Method, Endpoint, IP
+E_A001, , 04/01/2019 19:17:10, 404, GET, /public, ::1
+E_A001, , 04/01/2019 19:17:18, 404, GET, /public/docs, ::1

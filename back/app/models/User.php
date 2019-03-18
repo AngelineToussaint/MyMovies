@@ -6,6 +6,7 @@ use Kernel\Tools\Utils;
 class User extends Database
 {
     protected static $_table = 'user';
+    public static $retrieveEmailAndPw = false; // If is true, allow to retrieve the email and password
 
     /**
      * Check if email and password correspond
@@ -29,8 +30,6 @@ class User extends Database
      */
     public function insert()
     {
-        $this->token = $this->_generateToken();
-
         return parent::insert();
     }
 

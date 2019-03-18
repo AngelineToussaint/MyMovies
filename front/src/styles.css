@@ -1,0 +1,11 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.view {
+  flex: 1 0 auto;
+  position: relative;
+}
+app-root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
