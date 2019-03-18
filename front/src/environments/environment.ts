@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'API_URL',
-  apiTMDBUrl: 'API_URL',
-  apiTMDBToken: 'API_TOKEN',
-  pictureUrl: 'PICTURE_URL'
+  apiUrl: 'http://nas.adrien-martineau.com/MyMovies/back/public',
+  apiTMDBUrl: 'https://api.themoviedb.org/3',
+  apiTMDBToken: '9d04b31b87c256519b2f069b87c2b7b1',
+  pictureUrl: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
 };
 
 /*
