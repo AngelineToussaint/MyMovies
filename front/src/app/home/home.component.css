@@ -1,4 +1,6 @@
-h1, h4, .form {
+* { font-family: Roboto,"Helvetica Neue",sans-serif; }
+
+h1, h4, .form, p {
   text-align: center
 }
 
